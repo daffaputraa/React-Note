@@ -1,25 +1,25 @@
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom"
-import { Local, Conditional } from "./components"
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
+import { Local, Conditional } from "./components";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query-devtools";
+import Query from "./components/reactQuery/Query";
 
-
-BrowserRouter
 function App() {
-
+  const queryClient = new QueryClient();
   return (
-    <>
-    <Router>
-      <Routes>
-        <Route path="/local" exact element={<Local/>}/>
-        <Route path="/conditional" exact element={<Conditional/>}/>
-      </Routes>
-    </Router>
-    </>
-  )
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <Routes>
+          <Route path="/query" exact element={<Query />} />
+        </Routes>
+      </Router>
+    </QueryClientProvider>
+  );
 }
 
-
-const  Header = ({nama}) => {
- return <>Halo, {nama}</>
-}
-
-export default App
+export default App;
