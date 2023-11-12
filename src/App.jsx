@@ -4,21 +4,15 @@ import {
   Route,
   BrowserRouter,
 } from "react-router-dom";
-import { Local, Conditional } from "./components";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query-devtools";
-import Query from "./components/reactQuery/Query";
 
+import Login from "./Pages/AtomicDesign/Login";
 function App() {
-  const queryClient = new QueryClient();
   return (
-    <QueryClientProvider client={queryClient}>
-      <Router>
-        <Routes>
-          <Route path="/query" exact element={<Query />} />
-        </Routes>
-      </Router>
-    </QueryClientProvider>
+    <Router>
+      <Routes>
+        <Route path="/atomiclogin" exact element={<Login />} />
+      </Routes>
+    </Router>
   );
 }
 

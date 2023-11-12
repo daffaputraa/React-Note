@@ -16,7 +16,7 @@ const Query = () => {
       <>
         {data.map((repo) => {
           return (
-            <div key={repo.id}>
+            <div key={repo.id} className="text-black">
               <ul>
                 <li>
                   <a href={repo.clone_url}>{repo.name}</a>
